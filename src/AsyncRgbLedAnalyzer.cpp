@@ -352,12 +352,12 @@ U32 AsyncRgbLedAnalyzer::GetMinimumSampleRateHz()
 
 const char* AsyncRgbLedAnalyzer::GetAnalyzerName() const
 {
-    return "Addressable LEDs (Async)";
+    return "Addressable LEDs (AC)";
 }
 
 const char* GetAnalyzerName()
 {
-    return "Addressable LEDs (Async)";
+    return "Addressable LEDs (AC)";
 }
 
 Analyzer* CreateAnalyzer()

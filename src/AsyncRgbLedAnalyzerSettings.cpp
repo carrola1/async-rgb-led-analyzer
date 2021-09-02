@@ -21,7 +21,7 @@ AsyncRgbLedAnalyzerSettings::AsyncRgbLedAnalyzerSettings()
     InitControllerData();
 
     mInputChannelInterface.reset( new AnalyzerSettingInterfaceChannel() );
-    mInputChannelInterface->SetTitleAndTooltip( "LED Channel", "Standard Addressable LEDs (Async)" );
+    mInputChannelInterface->SetTitleAndTooltip( "LED Channel", "Standard Addressable LEDs (AC)" );
     mInputChannelInterface->SetChannel( mInputChannel );
 
     mControllerInterface.reset( new AnalyzerSettingInterfaceNumberList() );
@@ -79,12 +79,23 @@ void AsyncRgbLedAnalyzerSettings::InitControllerData()
         // https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf
 		// http://www.seeedstudio.com/document/pdf/WS2812B%20Datasheet.pdf
         {
-            "WS2812B", "Worldsemi 24-bit RGB integrated light-source", 8, 3,
+            "WS2812B", "24-bit RGB integrated light-source", 8, 3,
             {50_us, 50_us, 50_us},
             {
                 // low-speed times
                 {{200_ns, 400_ns, 550_ns}, {700_ns, 850_ns, 1050_ns}},     // 0-bit times
                 {{650_ns, 800_ns, 1050_ns}, {200_ns, 450_ns, 600_ns}},  // 1-bit times
+            },
+            false, {{}, {}}, LAYOUT_GRB
+        },
+
+        {
+            "SK6812", "Worldsemi 24-bit RGB integrated light-source", 8, 3,
+            {50_us, 50_us, 50_us},
+            {
+                // low-speed times
+                {{100_ns, 300_ns, 500_ns}, {700_ns, 900_ns, 1200_ns}}, // 0-bit times
+                {{400_ns, 600_ns, 800_ns}, {400_ns, 600_ns, 800_ns}},  // 1-bit times
             },
             false, {{}, {}}, LAYOUT_GRB
         },

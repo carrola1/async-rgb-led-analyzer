@@ -30,6 +30,7 @@ class AsyncRgbLedAnalyzerSettings : public AnalyzerSettings
         {
             LED_WS2811 = 0,
             LED_WS2812B,
+            LED_SK6812,
             LED_WS2813,
             LED_TM1809,
             LED_TM1804,
